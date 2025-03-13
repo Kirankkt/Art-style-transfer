@@ -119,6 +119,9 @@ def load_model(style_name):
 # ------------------------
 
 def preprocess_image(image):
+    # Convert image to RGB if it's not already.
+    if image.mode != "RGB":
+        image = image.convert("RGB")
     transform_pipeline = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(256),
