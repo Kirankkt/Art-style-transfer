@@ -11,11 +11,11 @@ from PIL import Image
 @st.cache(allow_output_mutation=True)
 def load_model(style_name):
     """
-    Load the model for the given style from the 'models' folder.
+    Load the model for the given style from the current directory.
     The model file should be named exactly as <style_name>.pth.
-    Example: If style_name = "candy", then the model file is "models/candy.pth".
+    Example: If style_name = "candy", then the model file is "candy.pth" in the root folder.
     """
-    model_path = os.path.join("models", f"{style_name}.pth")
+    model_path = f"{style_name}.pth"
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     try:
